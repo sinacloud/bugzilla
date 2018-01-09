@@ -26,7 +26,7 @@ $create_htaccess = 1;
 #
 # If you set this to anything other than "", you will need to run checksetup.pl
 # as root or as a user who is a member of the specified group.
-$webservergroup = 'apache';
+$webservergroup = 'www-data';
 
 # Set this to 1 if Bugzilla runs in an Apache SuexecUserGroup environment.
 #
