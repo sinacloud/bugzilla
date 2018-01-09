@@ -21,9 +21,6 @@ RUN apt-get update && \
 	libgd-dev lynx-cur graphviz python-sphinx patch vim curl wget && \
 	rm -rf /var/lib/apt/lists/* 
 
-# add apache
-RUN useradd apache
-
 # Remove DEFAULT apache site
 RUN mkdir -p /var/www/
 RUN rm -rf /var/www/html
@@ -60,4 +57,4 @@ ADD start /opt/
 CMD ["/opt/start"]
 
 # Expose web server port
-EXPOSE 5050
+EXPOSE 80
