@@ -60,4 +60,4 @@ ADD start /opt/
 CMD ["/opt/start"]
 
 # Expose web server port
-EXPOSE 80
+EXPOSE 5050
