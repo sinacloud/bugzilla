@@ -1,0 +1,27 @@
+#!/bin/sh
+# Set up bugzilla and run apache2
+#DEFAULT_WEBSERVER_GROUP=www-data
+#DEFAULT_MYSQL_HOST=172.17.42.1
+#DEFAULT_MYSQL_PORT=0
+#DEFAULT_MYSQL_DB=bugzilla
+#DEFAULT_MYSQL_USER=bugzilla
+#DEFAULT_MYSQL_PWD=1234
+cd /var/www/html
+
+# Remove voting disable file
+rm -f extensions/Voting/disabled
+
+# Verify bugzilla setup
+#./checksetup.pl
+
+chmod a-w data/params
+
+# Change ownership
+chown -R apache:apache .
+
+# Remove stall pid file
+rm -f /var/run/apache2/apache2.pid
+
+# Start apache2
+. /etc/apache2/envvars
+/usr/sbin/apache2 -D FOREGROUND
